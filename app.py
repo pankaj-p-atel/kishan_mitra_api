@@ -16,7 +16,7 @@ except Exception as e:
     print("Failed to load model:", e)
 
 # Class names corresponding to model output
-class_names = ['Potato___Early_blight', 'Potato___Late_blight', 'Potato___healthy']
+class_names = ['Potato___Early_blight', 'Potato___healthy', 'Potato___Late_blight']
 
 # Preprocess incoming image
 def preprocess_image(img):
