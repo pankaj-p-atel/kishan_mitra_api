@@ -17,6 +17,11 @@ def preprocess_image(img):
     img = img / 255.0
     return img
 
+@app.route("/", methods=["GET"])
+def home():
+    return "Model Prediction API is up and running!"
+
+
 @app.route("/predict", methods=["POST"])
 def predict():
     if 'file' not in request.files:
