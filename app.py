@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 
 try:
-    model = load_model("potato_model.keras", compile=False)
+    model = load_model("potato_model.h5", compile=False)
     print(" Model loaded successfully.")
 except Exception as e:
     print("Failed to load model:", e)
