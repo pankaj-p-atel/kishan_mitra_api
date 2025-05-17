@@ -9,7 +9,12 @@ from PIL import Image
 app = Flask(__name__)
 
 
-model = load_model("potato_model.keras")  
+try:
+    model = load_model("potato_model.keras")
+    print(" Model loaded successfully.")
+except Exception as e:
+    print("Failed to load model:", e)
+
 
 
 class_names = ['Potato___Early_blight', 'Potato___healthy', 'Potato___Late_blight']
