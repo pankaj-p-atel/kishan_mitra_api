@@ -8,23 +8,23 @@ from PIL import Image
 
 app = Flask(__name__)
 
-
+# Load model
 try:
-    model = load_model("model.keras", compile=False)
-    print(" Model loaded successfully.")
+    model = load_model("potatoes.h5", compile=False)
+    print("Model loaded successfully.")
 except Exception as e:
     print("Failed to load model:", e)
 
-
-
+# Class names corresponding to model output
 class_names = ['Potato___Early_blight', 'Potato___healthy', 'Potato___Late_blight']
 
+# Preprocess incoming image
 def preprocess_image(img):
-    img = img.convert("RGB")                
-    img = img.resize((256, 256))            
-    img = image.img_to_array(img)          
-    img = img / 255.0                       
-    img = np.expand_dims(img, axis=0)       
+    img = img.convert("RGB")
+    img = img.resize((256, 256))
+    img = image.img_to_array(img)
+    img = img / 255.0
+    img = np.expand_dims(img, axis=0)
     return img
 
 @app.route("/", methods=["GET"])
