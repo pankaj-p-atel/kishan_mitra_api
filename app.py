@@ -11,11 +11,13 @@ model = load_model("model_uncompiled.h5", compile=False)
 class_names = ['Potato___Early_blight', 'Potato___healthy', 'Potato___Late_blight']  # Replace with your actual class names
 
 def preprocess_image(img):
-    img = img.resize((256, 256))  # Use the image size you trained with
-    img = image.img_to_array(img)
-    img = np.expand_dims(img, axis=0)
-    img = img / 255.0
+    img = img.convert("RGB")               
+    img = img.resize((256, 256))           
+    img = image.img_to_array(img)         
+    img = np.expand_dims(img, axis=0)      
+    img = img / 255.0                      
     return img
+
 
 @app.route("/", methods=["GET"])
 def home():
