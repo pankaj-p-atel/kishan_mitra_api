@@ -1,7 +1,6 @@
 services:
   - type: web
-    name: kishan-mitra-api
+    name: potato-disease-api
     env: python
-    buildCommand: ""
-    startCommand: "python app.py"
-    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
