@@ -6,7 +6,7 @@ import io
 from PIL import Image
 
 app = Flask(__name__)
-model = load_model("model.h5")
+model = load_model("model_uncompiled.h5", compile=False)
 class_names = ['Potato___Early_blight', 'Potato___healthy', 'Potato___Late_blight']  # Replace with your actual class names
 
 def preprocess_image(img):
